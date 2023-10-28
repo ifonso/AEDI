@@ -10,7 +10,14 @@
 - Crie outra função que receba um ponteiro para o TDA e imprima os dados da estrutura.
 - Crie um ponteiro para o TDA (no programa principal) e utilize as funções criadas.
 
-## Como rodar (Makefile)
+## Compilar (gcc)
+
+No terminal executo seguinte comando para compilar o arquivo.
+```shell
+$ gcc -I src main.c src/person.c src/date.c -o output
+```
+
+## Compilar (Makefile)
 
 | É necessário o `gcc` instalado e o `make` para utilizar o makefile (você não precisa se preocupar com isso se estiver em um sistema UNIX like).
 
