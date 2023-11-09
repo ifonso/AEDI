@@ -1,45 +1,29 @@
 #include <stdlib.h>
 #include <stdio.h>
-
-typedef struct {
-  int * vector;
-  int size;
-} Vector;
-
-int get_highest_element(Vector * v, int position, int current) {
-  if (position == v->size) {
-    return current;
-  }
-
-  return get_highest_element(
-    v, position+1, v->vector[position] > current ? v->vector[position] : current
-  );
-}
-
-int get_lowest_element(Vector * v, int position, int current) {
-  if (position == v->size) {
-    return current;
-  }
-
-  return get_lowest_element(
-    v, position+1, v->vector[position] < current ? v->vector[position] : current
-  );
-}
-
-int get_sum(Vector * v, int position, int accumulator) {
-  return position >= v->size ? accumulator : get_sum(v, position+1, accumulator + v->vector[position]);
-}
+#include "list.h"
 
 int main() {
-  int data[] = {10, 1, 14, 2, 54, 18};
+  List * list = create_list(10);
+  
+  insert_ordered_elements(list);
+  print_elements_recursive(list, 0);
 
-  Vector v;
-  v.size = 6;
-  v.vector = data;
+  int target = 4;
+  int position = binary_search_recursive(list, target, 0, list->size);
 
-  printf("The higest element from this vector is: %d\n", get_highest_element(&v, 0, v.vector[0]));
-  printf("The lowest element from this vector is: %d\n", get_lowest_element(&v, 0, v.vector[0]));
-  printf("The sum of elemets of the vector is: %d\n", get_sum(&v, 0, 0));
+  if (position == -1) {
+    printf("The target %d was not found on the list\n", target);
+  } else {
+    printf("The target %d was found on the list at position [%d]\n", target, position);
+  }
+
+  printf("The highest element on the list is %d\n", get_highest_element(list, 0, list->vector[0]));
+  printf("The lowest element on the list is %d\n", get_lowest_element(list, 0, list->vector[0]));
+
+  printf("The sum of all elements on the list is %d\n", get_sum_recursive(list, 0, 0));
+  printf("The product of all elements on the list is %d\n", get_product_recursive(list, 0, 1));
+
+  destroy_list(list);
 
   return 0;
 }
