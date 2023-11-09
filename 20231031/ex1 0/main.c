@@ -53,5 +53,9 @@ int main() {
   // 11. Print the product of all elements on the first list
   printf("Product of all elements on first list: %d\n", get_product(first_list));
   
+  // free the memory
+  destroy_list(first_list);
+  destroy_list(second_list);
+  
   return 0;
 }
