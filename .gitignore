@@ -1,4 +1,5 @@
 # Cache files from macOS
 .DS_Store
+.vscode/
 output
 makefile
