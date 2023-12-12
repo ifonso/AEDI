@@ -13,12 +13,16 @@ int main() {
   insert_ordered(l, 5, "Ana", 22);
   insert_ordered(l, 3, "Jennifer", 23);
 
+  printf("\nList size: %d\n", list_size(l));
+
   // Print list
   print_list(l);
 
   // Removing Bruno
   remove_by_value(l, 10);
 
+  printf("\nList size: %d\n", list_size(l));
+  
   // Print list
   print_list(l);
 
