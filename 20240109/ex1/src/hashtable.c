@@ -65,10 +65,8 @@ Patient * ht_remove(HASH_TABLE ht, int code) {
 }
 
 void ht_print(HASH_TABLE ht) {
-  for (int i = 0; i < MAX_CAPACITY; i++) {
-    printf("TABLE[%d] -> %s\n", i, 
-      ht[i] == NULL
-      ? "NULL" 
-      : ht[i]->name);
+ for (int i = 0; i < MAX_CAPACITY; i++) {
+    if (ht[i] == NULL) continue;
+    printf("TABLE[%d] -> %s\n", i, ht[i]->name);
   }
 }

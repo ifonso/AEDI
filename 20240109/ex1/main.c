@@ -52,9 +52,7 @@ int main() {
   ht_remove(ht, 2871);
   p = ht_search(ht, 2871);
 
-  if (p == NULL) {
-    printf("Paciente %s não encontrada na tabela.\n", p3.name);
-  }
+  ht_print(ht);
 
   return 0;
 }
