@@ -4,8 +4,15 @@
 #define MAX_CAPACITY 100
 
 #include "patient.h"
+#include <stdbool.h>
 
-typedef Patient * HASH_TABLE[MAX_CAPACITY];
+typedef struct Ps Ps;
+typedef Ps * HASH_TABLE[MAX_CAPACITY];
+
+struct Ps {
+  Patient * p;
+  bool available;
+};
 
 void ht_init(HASH_TABLE ht);
 void ht_print(HASH_TABLE ht);
