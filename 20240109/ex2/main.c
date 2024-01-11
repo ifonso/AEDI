@@ -47,12 +47,16 @@ int main() {
 
   // Find Bruno
   p = ht_search(ht, 1089);
-  printf("Paciente %s encontrada na tabela.\n", p->name);
+  printf("Paciente %s encontrada na tabela.\n\n", p->name);
+
+  ht_print(ht);
 
   p = ht_remove(ht, 1089);
   if (p != NULL) {
     printf("Paciente %s removido da tabela.\n", p->name);
   }
 
+  ht_print(ht);
+  
   return 0;
 }

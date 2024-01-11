@@ -68,7 +68,7 @@ Patient * ht_remove(HTable ht, int code) {
   return p;
 }
 
-void ht_print(HTable ht, int code) {
+void ht_print(HTable ht) {
   for(int i = 0; i<MAX_CAPACITY; i++) {
     Node * c = ht[i];
     if (c != NULL) {
