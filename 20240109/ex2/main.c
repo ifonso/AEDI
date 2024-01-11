@@ -41,12 +41,18 @@ int main() {
   ht_insert(ht, p4);
 
   // Find Jennifer
-  Patient * p = ht_search(ht, 1291);
+  Patient * p;
+  p = ht_search(ht, 1291);
   printf("Paciente %s encontrada na tabela.\n", p->name);
 
   // Find Bruno
   p = ht_search(ht, 1089);
   printf("Paciente %s encontrada na tabela.\n", p->name);
+
+  p = ht_remove(ht, 1089);
+  if (p != NULL) {
+    printf("Paciente %s removido da tabela.\n", p->name);
+  }
 
   return 0;
 }

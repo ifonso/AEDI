@@ -1,6 +1,7 @@
 #include "hashtable.h"
 #include "patient.h"
 
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -42,4 +43,32 @@ Patient * ht_search(HASH_TABLE ht, int code) {
     }
   }
   return NULL;
+}
+
+Patient * ht_remove(HASH_TABLE ht, int code) {
+  Patient * p = NULL;
+  int i = hash(code);
+  while(ht[i] != NULL) {
+    if (ht[i]->code == code) {
+      p = ht[i];
+      ht[i] = NULL;
+      break;
+    }
+
+    if (i+1 < MAX_CAPACITY) {
+      i = (i+1) % MAX_CAPACITY;
+    } else {
+      break;
+    }
+  }
+  return p;
+}
+
+void ht_print(HASH_TABLE ht) {
+  for (int i = 0; i < MAX_CAPACITY; i++) {
+    printf("TABLE[%d] -> %s\n", i, 
+      ht[i] == NULL
+      ? "NULL" 
+      : ht[i]->name);
+  }
 }
